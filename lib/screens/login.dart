@@ -1,5 +1,8 @@
+import 'package:firebase_login_and_sign_up_app/screens/register.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 
 class LoginSreen extends StatefulWidget {
   const LoginSreen({super.key});
@@ -61,6 +64,9 @@ class _LoginSreenState extends State<LoginSreen> {
                       ]),
                   child: TextField(
                     decoration: InputDecoration(
+                      hintText: "Email",
+                      prefixIcon: const Icon(Icons.email_outlined,
+                          color: Colors.deepOrangeAccent),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide:
@@ -92,6 +98,9 @@ class _LoginSreenState extends State<LoginSreen> {
                       ]),
                   child: TextField(
                     decoration: InputDecoration(
+                      hintText: "Password",
+                      prefixIcon: const Icon(Icons.password_outlined,
+                          color: Colors.deepOrangeAccent),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                         borderSide:
@@ -145,10 +154,11 @@ class _LoginSreenState extends State<LoginSreen> {
                       text: "Don\'t have an account? ",
                       style:
                           TextStyle(fontSize: 20, color: Colors.grey.shade700),
-                      children: const [
+                      children: [
                         TextSpan(
                           text: "Create",
-                          style: TextStyle(fontSize: 20, color: Colors.black),
+                          style: const TextStyle(fontSize: 20, color: Colors.black),
+                          recognizer: TapGestureRecognizer()..onTap = ()=>Get.to(() => const RegisterScreen()),
                         ),
                       ],
                     ),
